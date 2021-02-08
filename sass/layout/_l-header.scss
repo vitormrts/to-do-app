@@ -1,0 +1,15 @@
+.l-header {
+    margin-top: 75px;
+
+    &__top {
+        display: flex;
+        background-color: red;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: 4.8rem;
+        color: white;
+        vertical-align: middle;
+    }
+}

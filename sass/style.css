@@ -1,0 +1,94 @@
+.l-header {
+  margin-top: 75px;
+}
+
+.l-header__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: red;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.l-header__title {
+  font-size: 4.8rem;
+  color: white;
+  vertical-align: middle;
+}
+
+:root {
+  --color-blue: #3a7bfd;
+  --color-bg: #fafafa;
+  --color-bg-list: white;
+  --color-around-check: #e4e5f1;
+  --color-create: #d2d3db;
+  --color-text: #484b6a;
+  --color-options: #9394a5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 62.5%;
+  font-family: Josefin Sans;
+  color: var(--color-text);
+}
+
+html::before {
+  content: '';
+  top: 0;
+  height: 300px;
+  width: 100%;
+  background-image: url("../assets/bg-desktop-light.jpg");
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+@media (max-width: 62.5em) {
+  html::before {
+    background-image: url("../assets/bg-desktop-light-m.jpg");
+  }
+}
+
+@media (max-width: 31.875em) {
+  html::before {
+    background-image: url("../assets/bg-desktop-light-p.jpg");
+  }
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 1.8rem;
+  background-color: var(--color-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content {
+  width: 80%;
+  max-width: 650px;
+  height: 100%;
+  background-color: blue;
+}
+/*# sourceMappingURL=style.css.map */

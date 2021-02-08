@@ -1,0 +1,77 @@
+@import "abstract/breakpoints";
+
+@import "layout/l-header";
+@import "layout/l-main";
+
+$project-colors: (
+    "blue": hsl(220, 98%, 61%),
+    "bg": hsl(0, 0%, 98%),
+    "bg-list": white,
+    "around-check": hsl(236, 33%, 92%),
+    "create": hsl(233, 11%, 84%),
+    "text": hsl(235, 19%, 35%),
+    "options": hsl(236, 9%, 61%),
+);
+
+$bg-image-desktop-g: "../assets/bg-desktop-light.jpg";
+$bg-image-desktop-m: "../assets/bg-desktop-light-m.jpg";
+$bg-image-desktop-p: "../assets/bg-desktop-light-p.jpg";
+$bg-image-mobile: "/assets/bg-mobile-light.jpg";
+
+:root {
+    @each $name, $color in $project-colors {
+        --color-#{$name}: #{$color};
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    font-size: 62.5%;
+    font-family: Josefin Sans;
+    color: var(--color-text);
+}
+
+html::before {
+    content: '';
+    top: 0;
+    height: 300px;
+    width: 100%;
+    background-image: url($bg-image-desktop-g);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+
+    @include breakpoint(1000) {
+        background-image: url($bg-image-desktop-m)
+    }
+
+    @include breakpoint(510) {
+        background-image: url($bg-image-desktop-p)
+    }
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 1.8rem;
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    width: 80%;
+    max-width: 650px;
+    height: 100%;
+    background-color: blue;
+}

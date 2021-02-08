@@ -5,21 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="sass/style.css">
   
   <title>Todo</title>
 </head>
 <body>
-
-  Todo
-
-  <!-- Add dynamic number --> items left
-
-  All
-  Active 
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list
+  <div class="content">
+    <header class="l-header">
+  
+      <div class="l-header__top">
+        <h1 class="l-header__title">TODO</h1>
+        <img class="l-header__icon" src="assets/icon-moon.svg" alt="icon sun-moon">
+      </div>
+  
+      <div class="l-header__create-todo">
+        <input type="checkbox" class="l-header__mark" name="mark">
+        <label for="mark"></label>
+        <input type="text" class="l-header__text" placeholder="Create a new todo...">
+      </div>
+    </header>
+  
+    <main class="l-main">
+      <ul class="c-list">
+      </ul>
+    </main>
+  </div>
 </body>
 </html>
