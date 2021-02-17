@@ -1,15 +1,65 @@
 .l-header {
     margin-top: 75px;
+    background-color: rebeccapurple;
 
     &__top {
         display: flex;
-        background-color: red;
         align-items: center;
+        margin-bottom: 40px;
     }
 
     &__title {
-        font-size: 4.8rem;
+        padding-top: 8px;
+        font-size: 3.5rem;
+        letter-spacing: 9px;
         color: white;
-        vertical-align: middle;
+        flex: 1;
+    }
+
+    img {
+        width: 22px;
+    }
+
+    &__create-todo {
+        background-color: var(--color-bg-list);
+        display: flex;
+        border-radius: 6px;
+        padding: 18px;
+    }
+
+    &__mark {
+        position: relative;
+        appearance: none;
+        width: 21px;
+        height: 20px;
+        background-color: blue;
+        border-radius: 50%;
+        // border: 1px solid var(--color-around-check);
+
+        &::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            width: 22px;
+            width: 21px;
+            background-color: black;
+        }
+
+
+        &:hover {
+        }
+    }
+
+    &__text {
+        border: none;
+        margin-left: 15px;
+        width: 100%;
+        outline-style: none;
+        color: var(--color-text);
+
+        &::placeholder {
+            color: var(--color-options);
+            font-weight: 500;
+        }
     }
 }

@@ -1,21 +1,87 @@
 .l-header {
   margin-top: 75px;
+  background-color: rebeccapurple;
 }
 
 .l-header__top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: red;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 40px;
 }
 
 .l-header__title {
-  font-size: 4.8rem;
+  padding-top: 8px;
+  font-size: 3.5rem;
+  letter-spacing: 9px;
   color: white;
-  vertical-align: middle;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.l-header img {
+  width: 22px;
+}
+
+.l-header__create-todo {
+  background-color: var(--color-bg-list);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 6px;
+  padding: 18px;
+}
+
+.l-header__mark {
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 21px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+.l-header__mark::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  width: 22px;
+  width: 21px;
+  background-color: black;
+}
+
+.l-header__text {
+  border: none;
+  margin-left: 15px;
+  width: 100%;
+  outline-style: none;
+  color: var(--color-text);
+}
+
+.l-header__text::-webkit-input-placeholder {
+  color: var(--color-options);
+  font-weight: 500;
+}
+
+.l-header__text:-ms-input-placeholder {
+  color: var(--color-options);
+  font-weight: 500;
+}
+
+.l-header__text::-ms-input-placeholder {
+  color: var(--color-options);
+  font-weight: 500;
+}
+
+.l-header__text::placeholder {
+  color: var(--color-options);
+  font-weight: 500;
 }
 
 :root {
