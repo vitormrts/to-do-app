@@ -1,6 +1,7 @@
 .l-header {
     margin-top: 75px;
     background-color: rebeccapurple;
+    margin-bottom: 20px;
 
     &__top {
         display: flex;
@@ -25,6 +26,7 @@
         display: flex;
         border-radius: 6px;
         padding: 18px;
+        z-index: -2;
     }
 
     &__mark {
@@ -32,21 +34,16 @@
         appearance: none;
         width: 21px;
         height: 20px;
-        background-color: blue;
+        border: 1px solid var(--color-around-check);
         border-radius: 50%;
-        // border: 1px solid var(--color-around-check);
-
-        &::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            width: 22px;
-            width: 21px;
-            background-color: black;
-        }
-
+        cursor: pointer;
 
         &:hover {
+            border: double 1px transparent;
+            border-radius: 50%;
+            background-image: linear-gradient(white, white), radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
         }
     }
 
