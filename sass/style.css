@@ -33,7 +33,7 @@
   display: -ms-flexbox;
   display: flex;
   border-radius: 6px;
-  padding: 22px;
+  padding: 18px;
   z-index: -2;
 }
 
@@ -100,9 +100,7 @@
 .c-menu {
   font-size: 1.3rem;
   color: var(--color-options);
-  font-weight: 700;
-  padding: 22px;
-  text-align: center;
+  padding: 18px;
 }
 
 .c-menu__list {
@@ -129,35 +127,58 @@
   font-weight: 400;
 }
 
+.c-menu__item-option {
+  font-weight: 700;
+  text-align: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.c-menu__item-option:hover {
+  color: var(--color-text);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.c-menu__item-option:not(:first-child) {
+  margin-left: 20px;
+}
+
 .c-drop {
   margin-top: 50px;
   font-size: 1.4rem;
   text-align: center;
+  color: var(--color-options);
 }
 
 .c-list {
   list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .c-list__item {
+  padding: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid var(--color-around-check);
 }
 
-.c-list__item ::after {
-  content: '';
-  width: 80%;
-  position: absolute;
-  height: 1px;
-  background-color: aqua;
-  top: 0;
-}
-
-.c-list p {
-  margin-top: 3px;
-  margin-left: 15px;
+.c-list__item:hover img {
+  -webkit-transition: 2s;
+  transition: 2s;
+  opacity: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
 }
 
 .c-list__mark {
@@ -169,6 +190,7 @@
   height: 20px;
   border: 1px solid var(--color-around-check);
   border-radius: 50%;
+  margin-right: 15px;
   cursor: pointer;
 }
 
@@ -179,6 +201,21 @@
   background-image: linear-gradient(white, white), radial-gradient(circle at top left, #57ddff, #c058f3);
   background-origin: border-box;
   background-clip: padding-box, border-box;
+}
+
+.c-list__text {
+  width: 80%;
+  word-wrap: break-word;
+  margin-top: 2px;
+}
+
+.c-list img {
+  opacity: 0%;
+  margin-left: 35px;
+  width: 18px;
+  height: 18px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 :root {

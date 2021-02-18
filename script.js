@@ -33,7 +33,10 @@ function createTodo(todo_text) {
         <div class="c-list__item">
         <input type="checkbox" class="c-list__mark" name="mark">
         <label for="mark"></label>
+        <div class="c-list__text">
         <p>${todo_text}</p>
+        </div>
+        <img src="assets/icon-cross.svg" alt="excluir tarefa">
         </div>
       `
     )

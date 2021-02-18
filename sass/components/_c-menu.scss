@@ -1,9 +1,7 @@
 .c-menu {
     font-size: 1.3rem;
     color: var(--color-options);
-    font-weight: 700;
-    padding: 22px;
-    text-align: center;
+    padding: 18px;
 
     &__list {
         display: flex;
@@ -22,6 +20,26 @@
         &:last-child {
             text-align: end;
             font-weight: 400;
+        }
+    }
+
+    &__item-option {
+        font-weight: 700;
+        text-align: center;
+        transition: 0.5s;
+
+        &:hover {
+            color: var(--color-text);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        // &:active {
+        //     color: var(--color-blue);
+        // }
+        
+        &:not(:first-child) {
+            margin-left: 20px;
         }
     }
 }
