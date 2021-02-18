@@ -1,7 +1,6 @@
 .l-header {
   margin-top: 75px;
-  background-color: rebeccapurple;
-  margin-bottom: 20px;
+  margin-bottom: 23px;
 }
 
 .l-header__top {
@@ -34,7 +33,7 @@
   display: -ms-flexbox;
   display: flex;
   border-radius: 6px;
-  padding: 18px;
+  padding: 22px;
   z-index: -2;
 }
 
@@ -69,22 +68,71 @@
 
 .l-header__text::-webkit-input-placeholder {
   color: var(--color-options);
+  font-family: Josefin Sans;
   font-weight: 500;
 }
 
 .l-header__text:-ms-input-placeholder {
   color: var(--color-options);
+  font-family: Josefin Sans;
   font-weight: 500;
 }
 
 .l-header__text::-ms-input-placeholder {
   color: var(--color-options);
+  font-family: Josefin Sans;
   font-weight: 500;
 }
 
 .l-header__text::placeholder {
   color: var(--color-options);
+  font-family: Josefin Sans;
   font-weight: 500;
+}
+
+.l-main {
+  padding: 22px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 0px 15px silver;
+          box-shadow: 0px 0px 15px silver;
+  background-color: var(--color-bg-list);
+}
+
+.c-menu {
+  font-size: 1.3rem;
+  color: var(--color-options);
+  font-weight: 700;
+  text-align: center;
+}
+
+.c-menu__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+.c-menu__item {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  white-space: nowrap;
+}
+
+.c-menu__item:first-child {
+  text-align: start;
+  font-weight: 400;
+}
+
+.c-menu__item:last-child {
+  text-align: end;
+  font-weight: 400;
+}
+
+.c-drop {
+  margin-top: 50px;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 :root {
@@ -156,8 +204,7 @@ body {
 
 .content {
   width: 80%;
-  max-width: 650px;
+  max-width: 550px;
   height: 100%;
-  background-color: blue;
 }
 /*# sourceMappingURL=style.css.map */

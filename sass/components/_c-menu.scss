@@ -1,0 +1,26 @@
+.c-menu {
+    font-size: 1.3rem;
+    color: var(--color-options);
+    font-weight: 700;
+    text-align: center;
+
+    &__list {
+        display: flex;
+        list-style: none;
+    }
+
+    &__item {
+        flex: auto;
+        white-space: nowrap;
+        
+        &:first-child {
+            text-align: start;
+            font-weight: 400;
+        }
+
+        &:last-child {
+            text-align: end;
+            font-weight: 400;
+        }
+    }
+}

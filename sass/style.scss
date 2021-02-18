@@ -3,6 +3,9 @@
 @import "layout/l-header";
 @import "layout/l-main";
 
+@import "components/c-menu";
+@import "components/c-drop";
+
 $project-colors: (
     "blue": hsl(220, 98%, 61%),
     "bg": hsl(0, 0%, 98%),
@@ -71,7 +74,7 @@ body {
 
 .content {
     width: 80%;
-    max-width: 650px;
+    max-width: 550px;
     height: 100%;
-    background-color: blue;
+    // background-color: blue;
 }

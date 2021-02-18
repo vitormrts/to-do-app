@@ -1,7 +1,6 @@
 .l-header {
     margin-top: 75px;
-    background-color: rebeccapurple;
-    margin-bottom: 20px;
+    margin-bottom: 23px;
 
     &__top {
         display: flex;
@@ -25,7 +24,7 @@
         background-color: var(--color-bg-list);
         display: flex;
         border-radius: 6px;
-        padding: 18px;
+        padding: 22px;
         z-index: -2;
     }
 
@@ -56,6 +55,7 @@
 
         &::placeholder {
             color: var(--color-options);
+            font-family: Josefin Sans;
             font-weight: 500;
         }
     }
