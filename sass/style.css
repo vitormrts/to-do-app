@@ -150,6 +150,7 @@
   font-size: 1.4rem;
   text-align: center;
   color: var(--color-options);
+  margin-bottom: 50px;
 }
 
 .c-list {
@@ -175,9 +176,6 @@
   -webkit-transition: 2s;
   transition: 2s;
   opacity: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   cursor: pointer;
 }
 
@@ -209,9 +207,14 @@
   margin-top: 2px;
 }
 
+.c-list__cross-todo {
+  margin-left: 22px;
+  border: none;
+  background-color: var(--color-bg-list);
+}
+
 .c-list img {
   opacity: 0%;
-  margin-left: 35px;
   width: 18px;
   height: 18px;
   -webkit-transition: 0.5s;

@@ -12,7 +12,6 @@
             img {
                 transition: 2s;
                 opacity: 100%;
-                display: flex;
                 cursor: pointer;
             }
         }
@@ -43,9 +42,15 @@
         margin-top: 2px;
     }
 
+    &__cross-todo {
+        margin-left: 22px;
+        border: none;
+        background-color: var(--color-bg-list);
+
+    }
+
     img {
         opacity: 0%;
-        margin-left: 35px;
         width: 18px;
         height: 18px;
         transition: 0.5s;
