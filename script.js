@@ -1,9 +1,9 @@
 const inputText = document.querySelector(".l-header__text")
 const list = document.querySelector(".c-list")
 const clearCompleted = document.querySelector("#clear-completed")
-const completed = document.querySelector("#completed-items")
-const active = document.querySelector("#active-items")
-const all = document.querySelector("#all-items")
+const showCompleted = document.querySelector("#completed-items")
+const showActive = document.querySelector("#active-items")
+const showAll = document.querySelector("#all-items")
 const itemsLeft = document.querySelector("#items-left")
 
 let allItems = []
@@ -17,13 +17,45 @@ const getStyle = (style) => {
 var id = 0
 
 clearCompleted.addEventListener("click", function() {
-    const list = document.querySelector(".c-list")
     let completedTodo = document.querySelectorAll(".c-list__mark.complete")
     completedTodo.forEach((todo) => {
         let liId = todo.closest("li").id
         let liElem = document.querySelector(`#${liId}`)
         list.removeChild(liElem)
     })
+})
+
+showCompleted.addEventListener("click", () => {
+    incompleteTodo = document.querySelectorAll(".c-list__mark.incomplete")
+    incompleteTodo.forEach((todo) => {
+        let liId = todo.closest("li").id
+        let liElem = document.querySelector(`#${liId}`)
+        activeItems.push(liElem)
+        list.removeChild(liElem)
+    })
+    if (completedItems.length > 0) {
+        completedItems.forEach((item) => {
+            list.appendChild(item)
+            completedItems.pop()
+        })
+    }
+})
+
+showActive.addEventListener("click", () => {
+    let completedTodo = document.querySelectorAll(".c-list__mark.complete")
+    completedTodo.forEach((todo) => {
+        let liId = todo.closest("li").id
+        let liElem = document.querySelector(`#${liId}`)
+        completedItems.push(liElem)
+        list.removeChild(liElem)
+
+    })
+    if (activeItems.length > 0) {
+        activeItems.forEach((item) => {
+            list.appendChild(item)
+            activeItems.pop(item)
+        })
+    }
 })
 
 inputText.addEventListener("keyup", function(event) {
@@ -37,6 +69,7 @@ inputText.addEventListener("keyup", function(event) {
             list.appendChild(li)
             inputText.value = ''
             inputText.focus()
+            // activeItems.push
             crossButtons = document.querySelectorAll(".c-list__cross-todo")
             checkButtons = document.querySelectorAll(".c-list__mark")
             id += 1
