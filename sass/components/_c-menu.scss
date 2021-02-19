@@ -9,16 +9,24 @@
     }
 
     &__item {
+        width: min-content;
         flex: auto;
+        transition: 0.5s;
         white-space: nowrap;
+
+        &:hover {
+            color: var(--color-text);
+            transition: 0.5s;
+            cursor: pointer;
+        }
         
         &:first-child {
-            text-align: start;
+            text-align: center;
             font-weight: 400;
         }
 
         &:last-child {
-            text-align: end;
+            text-align: center;
             font-weight: 400;
         }
     }
