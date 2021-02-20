@@ -22,6 +22,7 @@ clearCompleted.addEventListener("click", function() {
         let liId = todo.closest("li").id
         let liElem = document.querySelector(`#${liId}`)
         list.removeChild(liElem)
+        completedItems.splice(0, completedItems.length)
     })
 })
 
@@ -58,32 +59,74 @@ function crossTodo(crossButtons, list) {
     })
 }
 
+showCompleted.addEventListener("click", () => {
+    incompleteTodo = document.querySelectorAll(".c-list__mark.incomplete")
+    incompleteTodo.forEach((todo) => {
+        let liId = todo.closest("li").id
+        let liElem = document.querySelector(`#${liId}`)
+        addItem(liElem, activeItems)
+        list.removeChild(liElem)
+    })
+    if (completedItems.length > 0) {
+        completedItems.forEach((item) => {
+            list.appendChild(item)
+        })
+    }
+ })
+
+let removeItem = (elem, list) => {
+    let index = list.indexOf(elem)
+    if (index > -1) {
+        return list.splice(index, 1)
+    }
+}
+
+let addItem = (elem, list) => {
+    let index = list.indexOf(elem)
+    if (index == -1) {
+        return list.push(elem)
+    }
+}
+
+
+showActive.addEventListener("click", () => {
+    let completedTodo = document.querySelectorAll(".c-list__mark.complete")
+    completedTodo.forEach((todo) => {
+        let liId = todo.closest("li").id
+        let liElem = document.querySelector(`#${liId}`)
+        addItem(liElem, completedItems)
+        list.removeChild(liElem)
+    })
+    if (activeItems.length > 0) {
+        activeItems.forEach((item) => {
+            list.appendChild(item)
+            // activeItems.pop(item)
+        })
+    }
+})
+
 function completeTodo(checkButtons) {
     checkButtons.forEach(function(check) {
         check.addEventListener("change", ({target}) => {
             let p = document.getElementById(`p-${check.id}`)
+            let liId = check.closest("li").id
+            let liElem = document.querySelector(`#${liId}`)
             if (target.checked) {
-                console.log(target.id)
                 p.style.textDecoration = "line-through"
                 p.style.color = `${getStyle("--color-options")}`
                 check.setAttribute("class", "c-list__mark complete")
-
-                let liId = check.closest("li").id
-                let liElem = document.querySelector(`#${liId}`)
-                activeItems.pop(liElem)
-                console.log("CHECKED! ", activeItems)
-
+                removeItem(liElem, activeItems)
             }
-            else {
+            else  {
                 p.style.textDecoration = "none"
                 p.style.color = `${getStyle("--color-text")}`
                 check.setAttribute("class", "c-list__mark incomplete")
-                let liId = check.closest("li").id
-                let liElem = document.querySelector(`#${liId}`)
-                activeItems.push(liElem)
-                console.log("UNCHECKED! ", liElem)
-                
+                addItem(liElem, activeItems)
+                // console.log("UNCHECKED! ", activeItems)
             }
+            // addItem(liElem, allItems)
+            // console.log(allItems)
+
         })
     })
 } 
