@@ -25,39 +25,6 @@ clearCompleted.addEventListener("click", function() {
     })
 })
 
-showCompleted.addEventListener("click", () => {
-    incompleteTodo = document.querySelectorAll(".c-list__mark.incomplete")
-    incompleteTodo.forEach((todo) => {
-        let liId = todo.closest("li").id
-        let liElem = document.querySelector(`#${liId}`)
-        activeItems.push(liElem)
-        list.removeChild(liElem)
-    })
-    if (completedItems.length > 0) {
-        completedItems.forEach((item) => {
-            list.appendChild(item)
-            completedItems.pop()
-        })
-    }
-})
-
-showActive.addEventListener("click", () => {
-    let completedTodo = document.querySelectorAll(".c-list__mark.complete")
-    completedTodo.forEach((todo) => {
-        let liId = todo.closest("li").id
-        let liElem = document.querySelector(`#${liId}`)
-        completedItems.push(liElem)
-        list.removeChild(liElem)
-
-    })
-    if (activeItems.length > 0) {
-        activeItems.forEach((item) => {
-            list.appendChild(item)
-            activeItems.pop(item)
-        })
-    }
-})
-
 inputText.addEventListener("keyup", function(event) {
     if (isEnter(event)) { // enter pressionado
         const text = inputText.value
@@ -69,13 +36,14 @@ inputText.addEventListener("keyup", function(event) {
             list.appendChild(li)
             inputText.value = ''
             inputText.focus()
-            // activeItems.push
+            activeItems.push(li)
             crossButtons = document.querySelectorAll(".c-list__cross-todo")
             checkButtons = document.querySelectorAll(".c-list__mark")
             id += 1
 
             crossTodo(crossButtons, list)
             completeTodo(checkButtons)
+            console.log(activeItems)
         }
     }
 })
@@ -95,14 +63,26 @@ function completeTodo(checkButtons) {
         check.addEventListener("change", ({target}) => {
             let p = document.getElementById(`p-${check.id}`)
             if (target.checked) {
+                console.log(target.id)
                 p.style.textDecoration = "line-through"
                 p.style.color = `${getStyle("--color-options")}`
                 check.setAttribute("class", "c-list__mark complete")
+
+                let liId = check.closest("li").id
+                let liElem = document.querySelector(`#${liId}`)
+                activeItems.pop(liElem)
+                console.log("CHECKED! ", activeItems)
+
             }
             else {
                 p.style.textDecoration = "none"
                 p.style.color = `${getStyle("--color-text")}`
                 check.setAttribute("class", "c-list__mark incomplete")
+                let liId = check.closest("li").id
+                let liElem = document.querySelector(`#${liId}`)
+                activeItems.push(liElem)
+                console.log("UNCHECKED! ", liElem)
+                
             }
         })
     })

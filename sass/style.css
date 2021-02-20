@@ -110,7 +110,17 @@
   list-style: none;
 }
 
+.c-menu__buttom {
+  border: none;
+  background: none;
+  color: var(--color-options);
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
 .c-menu__item {
+  font-size: 1.3rem;
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
