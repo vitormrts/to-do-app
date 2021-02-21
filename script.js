@@ -10,11 +10,12 @@ let allItems = []
 let completedItems = []
 let activeItems = []
 
+var id = 0
+let status = "all"
+
 const getStyle = (style) => {
     return window.getComputedStyle(document.documentElement).getPropertyValue(style)
 }
-
-var id = 0
 
 clearCompleted.addEventListener("click", function() {
     let completedTodo = document.querySelectorAll(".c-list__mark.complete")
@@ -34,7 +35,9 @@ inputText.addEventListener("keyup", function(event) {
             li.id = `li-${id}`
             const todo = createTodo(text, id)
             li.innerHTML = todo
-            list.appendChild(li)
+            if (status != "completed") {
+                list.appendChild(li)
+            }
             inputText.value = ''
             inputText.focus()
             activeItems.push(li)
@@ -44,7 +47,6 @@ inputText.addEventListener("keyup", function(event) {
 
             crossTodo(crossButtons, list)
             completeTodo(checkButtons)
-            console.log(activeItems)
         }
     }
 })
@@ -55,12 +57,41 @@ function crossTodo(crossButtons, list) {
             let liId = btn.closest(`li`).id
             let liElem = document.querySelector(`#${liId}`)
             list.removeChild(liElem)
+            removeItem(liElem, activeItems)
+            removeItem(liElem, completedItems)
         })
     })
 }
 
+showAll.addEventListener("click", () => {
+    list.innerHTML = ""
+
+    activeItems.forEach((todo) => {
+        list.appendChild(todo)
+    })
+
+    completedItems.forEach((todo) => {
+        list.appendChild(todo)
+    })
+
+    // let incompleteTodo = document.querySelector(".c-list__mark.incomplete")
+    // incompleteTodo.forEach((todo) => {
+    //     let liId = todo.closest("li").id
+    //     let liElem = document.querySelector(`#${liId}`)
+    //     list.appendChild(liElem)
+    // })
+
+    // let completedTodo = document.querySelector(".c-list__mark.complete")
+    // completedTodo.forEach((todo) => {
+    //     let liId = todo.closest("li").id
+    //     let liElem = document.querySelector(`#${liId}`)
+    //     list.appendChild(liElem)
+    // })
+})
+
 showCompleted.addEventListener("click", () => {
-    incompleteTodo = document.querySelectorAll(".c-list__mark.incomplete")
+    status = "completed"
+    let incompleteTodo = document.querySelectorAll(".c-list__mark.incomplete")
     incompleteTodo.forEach((todo) => {
         let liId = todo.closest("li").id
         let liElem = document.querySelector(`#${liId}`)
@@ -73,6 +104,22 @@ showCompleted.addEventListener("click", () => {
         })
     }
  })
+
+showActive.addEventListener("click", () => {
+    status = "active"
+    let completedTodo = document.querySelectorAll(".c-list__mark.complete")
+    completedTodo.forEach((todo) => {
+        let liId = todo.closest("li").id
+        let liElem = document.querySelector(`#${liId}`)
+        addItem(liElem, completedItems)
+        list.removeChild(liElem)
+    })
+    if (activeItems.length > 0) {
+        activeItems.forEach((item) => {
+            list.appendChild(item)
+        })
+    }
+})
 
 let removeItem = (elem, list) => {
     let index = list.indexOf(elem)
@@ -87,23 +134,6 @@ let addItem = (elem, list) => {
         return list.push(elem)
     }
 }
-
-
-showActive.addEventListener("click", () => {
-    let completedTodo = document.querySelectorAll(".c-list__mark.complete")
-    completedTodo.forEach((todo) => {
-        let liId = todo.closest("li").id
-        let liElem = document.querySelector(`#${liId}`)
-        addItem(liElem, completedItems)
-        list.removeChild(liElem)
-    })
-    if (activeItems.length > 0) {
-        activeItems.forEach((item) => {
-            list.appendChild(item)
-            // activeItems.pop(item)
-        })
-    }
-})
 
 function completeTodo(checkButtons) {
     checkButtons.forEach(function(check) {

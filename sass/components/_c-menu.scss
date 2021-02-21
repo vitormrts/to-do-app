@@ -8,25 +8,12 @@
         list-style: none;
     }
 
-    &__buttom {
-        border: none;
-        background: none;
-        color: var(--color-options);
-        flex: auto;
-    }
-
     &__item {
         font-size: 1.3rem;
         width: min-content;
         flex: auto;
         transition: 0.5s;
         white-space: nowrap;
-
-        &:hover {
-            color: var(--color-text);
-            transition: 0.5s;
-            cursor: pointer;
-        }
         
         &:first-child {
             text-align: center;
@@ -43,15 +30,27 @@
         font-weight: 700;
         text-align: center;
         transition: 0.5s;
+        
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+    }
+
+    &__buttom {
+        border: none;
+        background: none;
+        color: var(--color-options);
+        flex: auto;
+
+        &:focus:not(:last-child) {
+            color: var(--color-blue);
+            outline: none;
+        }
 
         &:hover {
             color: var(--color-text);
             transition: 0.5s;
             cursor: pointer;
-        }
-        
-        &:not(:first-child) {
-            margin-left: 20px;
         }
     }
 }
