@@ -41,16 +41,11 @@
         background: none;
         color: var(--color-options);
         flex: auto;
-
-        &:focus:not(:last-child) {
-            color: var(--color-blue);
-            outline: none;
-        }
+        cursor: pointer;
 
         &:hover {
             color: var(--color-text);
             transition: 0.5s;
-            cursor: pointer;
         }
     }
 }

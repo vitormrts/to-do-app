@@ -17,7 +17,10 @@
   
       <div class="l-header__top">
         <h1 class="l-header__title">TODO</h1>
-        <img class="l-header__icon" src="assets/icon-moon.svg" alt="icon sun-moon">
+        <p class="l-header__check">
+          <input type="checkbox" class="l-header__checkbox">
+          <img class="l-header__icon" src="assets/icon-moon.svg" alt="icon sun-moon">
+        </p>
       </div>
   
       <div class="l-header__create-todo">
@@ -33,16 +36,13 @@
       <nav class="c-menu">
         <ul class="c-menu__list">
           <li class="c-menu__item" id="items-left">0 items left</li>
-          <button class="c-menu__buttom" autofocus><li class="c-menu__item-option" id="all-items">All</li></button>
-          <button class="c-menu__buttom"><li class="c-menu__item-option" id="active-items">Active</li></button>
-          <button class="c-menu__buttom"><li class="c-menu__item-option" id="completed-items">Completed</li></button>
-          <button class="c-menu__buttom"><li class="c-menu__item" id="clear-completed">Clear Completed</li></button>
+          <button type="button" class="c-menu__buttom"><li class="c-menu__item-option enabled" id="all-items">All</li></button>
+          <button type="button" class="c-menu__buttom"><li class="c-menu__item-option disabled" id="active-items">Active</li></button>
+          <button type="button" class="c-menu__buttom"><li class="c-menu__item-option disabled" id="completed-items">Completed</li></button>
+          <button type="button" class="c-menu__buttom"><li class="c-menu__item" id="clear-completed">Clear Completed</li></button>
         </ul>
       </nav>
     </main>
-    <div class="c-drop">
-      <span>Drag and drop to reorder list</span>
-    </div>
   </div>
 </body>
   <script src="script.js"></script>

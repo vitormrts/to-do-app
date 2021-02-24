@@ -44,9 +44,15 @@
         &:hover {
             border: double 1px transparent;
             border-radius: 50%;
-            background-image: linear-gradient(white, white), radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+            background-image: linear-gradient(var(--color-bg-list), var(--color-bg-list)), radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
             background-origin: border-box;
             background-clip: padding-box, border-box;
+        }
+
+        &__icon-check {
+            stroke: var(--color-bg-list);
+            position: absolute;
+            left: 5px;
         }
 
         &:checked {
@@ -72,6 +78,5 @@
             height: 18px;
             transition: 0.5s;
         }
-
     }
 }
