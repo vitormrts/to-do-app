@@ -43,6 +43,7 @@
   border: 1px solid var(--color-around-check);
   border-radius: 50%;
   cursor: pointer;
+  margin-right: 15px;
 }
 
 .l-header__mark:hover {
@@ -56,11 +57,16 @@
 
 .l-header__text {
   border: none;
-  margin-left: 15px;
   width: 100%;
   outline-style: none;
   color: var(--color-text);
   background-color: var(--color-bg-list);
+}
+
+@media (max-width: 24.25em) {
+  .l-header__text {
+    width: 70%;
+  }
 }
 
 .l-header__text::-webkit-input-placeholder {
@@ -123,7 +129,46 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   list-style: none;
+}
+
+@media (max-width: 32.1875em) {
+  .c-menu__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.c-menu__buttom-mid {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  margin: 0 15px;
+}
+
+@media (max-width: 25.8125em) {
+  .c-menu__buttom-mid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .c-menu__item {
@@ -140,13 +185,26 @@
 }
 
 .c-menu__item:first-child {
-  text-align: center;
+  text-align: start;
   font-weight: 400;
 }
 
+@media (max-width: 32.1875em) {
+  .c-menu__item:first-child {
+    margin: 0 0 10px 0;
+  }
+}
+
 .c-menu__item:last-child {
-  text-align: center;
+  text-align: end;
+  float: right;
   font-weight: 400;
+}
+
+@media (max-width: 32.1875em) {
+  .c-menu__item:last-child {
+    margin: 10px 0 0 0;
+  }
 }
 
 .c-menu__item-option {
@@ -157,7 +215,7 @@
 }
 
 .c-menu__item-option:not(:first-child) {
-  margin-left: 20px;
+  margin: 0 10px;
 }
 
 .c-menu__buttom {
@@ -257,6 +315,12 @@
   width: 80%;
   word-wrap: break-word;
   margin-top: 2px;
+}
+
+@media (max-width: 19.6875em) {
+  .c-list__text {
+    width: 50%;
+  }
 }
 
 .c-list__cross-todo {

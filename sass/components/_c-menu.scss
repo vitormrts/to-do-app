@@ -5,7 +5,26 @@
 
     &__list {
         display: flex;
+        align-items: center;
+        justify-content: center;
         list-style: none;
+
+        @include breakpoint(515) {
+            flex-direction: column;
+        }
+    }
+
+    &__buttom-mid {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0 15px;
+
+        @include breakpoint(413) {
+            flex-direction: column;
+        }
     }
 
     &__item {
@@ -14,15 +33,22 @@
         flex: auto;
         transition: 0.5s;
         white-space: nowrap;
-        
+
         &:first-child {
-            text-align: center;
+            text-align: start;
             font-weight: 400;
+            @include breakpoint(515) {
+                margin: 0 0 10px 0;
+            }
         }
 
         &:last-child {
-            text-align: center;
+            text-align: end;
+            float: right;
             font-weight: 400;
+            @include breakpoint(515) {
+                margin: 10px 0 0 0;
+            }
         }
     }
 
@@ -30,9 +56,9 @@
         font-weight: 700;
         text-align: center;
         transition: 0.5s;
-        
+
         &:not(:first-child) {
-            margin-left: 20px;
+            margin: 0 10px;
         }
     }
 

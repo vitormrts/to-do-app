@@ -65,6 +65,10 @@
         width: 80%;
         word-wrap: break-word;
         margin-top: 2px;
+
+        @include breakpoint(315) {
+            width: 50%;
+        }
     }
 
     &__cross-todo {
