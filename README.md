@@ -4,10 +4,10 @@
 
 
 <p align="center">
-     <img src=https://img.shields.io/github/languages/code-size/vitormrts/to-do-app?style=flat hspace="5" vspace="20"/>
-    <img src=https://img.shields.io/github/license/vitormrts/to-do-app?style=flat hspace="5" vspace="20"/>
-    <img src=https://img.shields.io/github/issues/vitormrts/to-do-app?style=flat hspace="5" vspace="20"/>
-    <img src="https://therealsujitk-vercel-badge.vercel.app/?app=to-do-app-mauve&style=flat" hspace="5" vspace="20"/>
+     <img src=https://img.shields.io/github/languages/code-size/vitormrts/to-do-app?style=for-the-badge hspace="2" vspace="20"/>
+    <img src=https://img.shields.io/github/license/vitormrts/to-do-app?style=for-the-badge hspace="2" vspace="20"/>
+    <img src=https://img.shields.io/github/issues/vitormrts/to-do-app?style=for-the-badge hspace="2" vspace="20"/>
+    <img src="https://vercelbadge.vercel.app/api/vitormrts/to-do-app?style=for-the-badge" hspace="2" vspace="20"/>
 </p> 
 
 <!-- ABOUT --> 
