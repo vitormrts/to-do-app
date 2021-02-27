@@ -16,7 +16,7 @@ This application allows you to store your daily tasks, which allows greater cont
 <!-- DEMO --> 
 ## 🎥 Demo
 
-This project was deployed in [Vercel](https://vercel.com/dashboard). To see a demo, [click here](https://to-do-app-vitormrts.vercel.app/). 
+This project was deployed in [Vercel](https://vercel.com). To see a demo, [click here](https://to-do-app-vitormrts.vercel.app/). 
 
 <div align="center">
     <img src="demo/light.png" hspace="20" vspace="20" width=80%/>
@@ -62,7 +62,7 @@ To contributing to this project, follow the steps bellow.
 5. Open a Pull Request
 
 ## 📝 License
-This project is under the MIT license. See the [LICENSE](https://github.com/vitormrts/loopstudios-landing-page/blob/master/LICENSE) file for more details.
+This project is under the MIT license. See the [LICENSE](https://github.com/vitormrts/to-do-app/blob/master/LICENSE) file for more details.
 
 ---
 
