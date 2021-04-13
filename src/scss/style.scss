@@ -5,6 +5,7 @@
 
 @import "components/c-menu";
 @import "components/c-list";
+@import "components/c-modal";
 
 $project-colors: (
     "blue": hsl(220, 98%, 61%),
@@ -15,6 +16,8 @@ $project-colors: (
     "text": hsl(235, 19%, 35%),
     "options": hsl(236, 9%, 61%),
     "shadow": hsl(0, 0%, 88%),
+    "green": #49AA26,
+    "red": #e92929
 );
 
 $bg-image-desktop-g: "../assets/bg-desktop-light.jpg";

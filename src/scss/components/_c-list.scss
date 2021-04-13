@@ -7,6 +7,12 @@
         overflow-y: auto;
     }
 
+    &__button-group {
+        display: flex;
+
+        justify-content: flex-end;
+    }
+
 
     &__item {
         padding: 18px;
@@ -23,11 +29,11 @@
                 cursor: pointer;
             }
         }
+    }
 
-        > div {
-            flex: 1;
-            display: flex;
-        }
+    &__check-text {
+        display: flex;
+        flex: 1;
     }
 
     &__check {
@@ -90,14 +96,26 @@
     }
 
     &__cross-todo {
-        margin-left: 22px;
+        margin-left: 10px;
         border: none;
         background-color: var(--color-bg-list);
 
         img {
             opacity: 0%;
-            width: 18px;
-            height: 18px;
+            width: 28px;
+            height: 28px;
+            transition: 0.5s;
+        }
+    }
+
+    &__update-todo {
+        border: none;
+        background-color: var(--color-bg-list);
+
+        img {
+            opacity: 0%;
+            width: 28px;
+            height: 28px;
             transition: 0.5s;
         }
     }

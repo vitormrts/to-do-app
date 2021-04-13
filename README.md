@@ -23,6 +23,10 @@ This project was deployed in [Vercel](https://vercel.com). To see a demo, [click
 </div>
 
 <div align="center">
+    <img src="src/demo/edit.png" hspace="20" vspace="20" width=80%/>
+</div>
+
+<div align="center">
     <img src="src/demo/active.png" hspace="20" vspace="20" width=80%/>
 </div>
 

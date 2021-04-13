@@ -111,9 +111,24 @@ const Todo = {
         newTodos = newTodos.concat(FilteredTodos.getActive(), FilteredTodos.getCompleted())
         
         LocalStorage.set(newTodos);
-    }
+    },
 
-    
+    update(updatedTodo) {
+        let todos = FilteredTodos.getAll();
+        const index = todos.findIndex(todo => Number(todo.id) == updatedTodo.id)
+
+        todos[index] = updatedTodo;
+
+        LocalStorage.set(todos);
+
+        App.reload();
+    }
+}
+
+const Modal = {
+    toggle(id) {
+        document.querySelector(`#modal-${id}`).classList.toggle('active');
+    }
 }
 
 const Form = {
@@ -166,6 +181,22 @@ const Form = {
         } catch (error) {
             alert(error);
         }
+    },
+
+    update(event, todo) {
+        event.preventDefault();
+
+        const description = document.querySelector(`#update-todo-${todo.id}`).value;
+
+        if (description == todo.description) {
+            alert('Você não atualizou a tarefa.')
+        } else if (description.trim() != '') {
+            todo.description = description;
+            Todo.update(todo)
+            alert('Tarefa atualizada com sucesso!')
+        } else {
+            alert('Por favor, não deixe o campo vazio.')
+        }
     }
 }
 
@@ -177,7 +208,13 @@ const DOM = {
         const li = document.createElement('li');
         li.innerHTML = DOM.innerHTMLTodo(todo);
 
+        const modal = document.createElement('div');
+        modal.classList.add('c-modal__overlay')
+        modal.id = `modal-${todo.id}`;
+        modal.innerHTML = DOM.innerHTMLModal(todo);
+
         DOM.todoContainer.appendChild(li);
+        DOM.todoContainer.appendChild(modal)
 
         const mark = document.querySelector(`#mark-todo-${todo.id}`)
 
@@ -188,12 +225,15 @@ const DOM = {
 
         document.querySelector(`#mark-todo-${todo.id}`).addEventListener('click', () => Todo.completedTodo(todo.id));
         document.querySelector(`#todo-cross-${todo.id}`).addEventListener('click', () => Todo.deleteTodo(todo.id));
+        document.querySelector(`#todo-update-${todo.id}`).addEventListener('click', () => Modal.toggle(todo.id));
+        document.querySelector(`#close-modal-${todo.id}`).addEventListener('click', () => Modal.toggle(todo.id));
+        document.querySelector(`#button-update-${todo.id}`).addEventListener('click', () => Form.update(event, todo));
     },
 
     innerHTMLTodo(todo) {
         const html = `
             <div class="c-list__item">
-                <div>
+                <div class="c-list__check-text">
                     <div class="c-list__check">
                         <input id="mark-todo-${todo.id}" type="checkbox" class="c-list__mark" name="mark">
                         <label for="mark"></label>
@@ -203,7 +243,10 @@ const DOM = {
                         <p>${todo.description}</p>
                     </div>
                 </div>
-                <button id="todo-cross-${todo.id}" class="c-list__cross-todo"><img src="./src/assets/icon-cross.svg" alt="Excluir tarefa"></button>
+                <div class="c-list__button-group">
+                    <button id="todo-update-${todo.id}" class="c-list__update-todo"><img src="./src/assets/edit.svg" alt="Editar tarefa"></button>
+                    <button id="todo-cross-${todo.id}" class="c-list__cross-todo"><img src="./src/assets/trash.svg" alt="Excluir tarefa"></button>
+                </div>
             </div>
         `
         return html;
@@ -211,6 +254,27 @@ const DOM = {
 
     clearTodos() {
         DOM.todoContainer.innerHTML = '';
+    },
+
+    innerHTMLModal(todo) {
+        const html = `
+            <div class="c-modal__content">
+                <h2 class="c-modal__title">Editar Tarefa</h2>
+                <p>Insira uma nova descrição para a tarefa desejada.</p>
+                <form class="c-modal__form-update" action="">
+                    <fieldset class="c-modal__form-fieldset">
+                        <label for="update-todo-${todo.id}"></label>
+                        <input type="text" id="update-todo-${todo.id}" name="update-todo-${todo.id}" class="c-modal__text" value="${todo.description}">
+                    </fieldset>
+
+                    <div class="c-modal__button-group">
+                        <a id="close-modal-${todo.id}" href="#">Cancelar</a>
+                        <button id="button-update-${todo.id}">Salvar</button>
+                    </div>
+                </form>
+            </div>`;
+
+        return html;
     }
 }
 
@@ -219,8 +283,6 @@ const App = {
         const todos = FilteredTodos.getTodos();
         todos.forEach((todo) => DOM.addTodo(todo))
         document.querySelector('#items-left').innerHTML = `${todos.length} itens restantes.`
-
-        console.log(todos)
     },
 
     reload() {
