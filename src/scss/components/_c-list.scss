@@ -1,12 +1,21 @@
 .c-list {
     list-style: none;
     align-items: center;
+
+    @media (min-height: 903px) {
+        max-height: 550px;
+        height: 80vh;
+        overflow-y: auto;
+    }
+
+
     &__item {
         padding: 18px;
         display: flex;
         position: relative;
         align-items: center;
         border-bottom: 1px solid var(--color-around-check);
+        justify-content: space-between;
 
         &:hover {
             img {
@@ -14,6 +23,11 @@
                 opacity: 100%;
                 cursor: pointer;
             }
+        }
+
+        > div {
+            flex: 1;
+            display: flex;
         }
     }
 

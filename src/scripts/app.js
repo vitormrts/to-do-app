@@ -125,7 +125,16 @@ const Todo = {
         allTodos = allTodos.filter(todo => todo.status == 'active');
         
         App.reload();
+    },
+
+    orderTodos() {
+        let newAllTodos = []
+        newAllTodos = newAllTodos.concat(FilteredTodos.getActive(), FilteredTodos.getCompleted())
+        allTodos = newAllTodos
+        console.log(allTodos)
     }
+
+    
 }
 
 const Form = {
@@ -190,24 +199,26 @@ const DOM = {
         const mark = document.querySelector(`#mark-todo-${todo.id}`)
 
         if (todo.status == 'completed') {
-            li.classList.add('completed')
-            mark.classList.add('checked')
+            li.classList.add('completed');
+            mark.classList.add('checked');
         }
 
         document.querySelector(`#mark-todo-${todo.id}`).addEventListener('click', () => Todo.completedTodo(todo.id));
-        document.querySelector(`#todo-cross-${todo.id}`).addEventListener('click', () => Todo.deleteTodo(todo.id))
+        document.querySelector(`#todo-cross-${todo.id}`).addEventListener('click', () => Todo.deleteTodo(todo.id));
     },
 
     innerHTMLTodo(todo) {
         const html = `
             <div class="c-list__item">
-                <div class="c-list__check">
-                    <input id="mark-todo-${todo.id}" type="checkbox" class="c-list__mark" name="mark">
-                    <label for="mark"></label>
-                    <svg class="c-list__mark__icon-check" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FGF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
-                </div>
-                <div class="c-list__text">
-                    <p>${todo.description}</p>
+                <div>
+                    <div class="c-list__check">
+                        <input id="mark-todo-${todo.id}" type="checkbox" class="c-list__mark" name="mark">
+                        <label for="mark"></label>
+                        <svg class="c-list__mark__icon-check" xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FGF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+                    </div>
+                    <div class="c-list__text">
+                        <p>${todo.description}</p>
+                    </div>
                 </div>
                 <button id="todo-cross-${todo.id}" class="c-list__cross-todo"><img src="./src/assets/icon-cross.svg" alt="Excluir tarefa"></button>
             </div>
@@ -228,6 +239,7 @@ const App = {
     },
 
     reload() {
+        Todo.orderTodos();
         DOM.clearTodos();
         App.init()
     }
