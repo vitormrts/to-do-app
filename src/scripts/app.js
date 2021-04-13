@@ -6,48 +6,15 @@ document.querySelector('#completed-items').addEventListener('click', () => Filte
 
 document.querySelector('#clear-completed').addEventListener('click', () => Todo.clearCompleted())
 
-let allTodos = [
-    {
-        id: 1,
-        description: "Bla",
-        status: "active"     
+const LocalStorage = {
+    get() {
+        return JSON.parse(localStorage.getItem("todo.app:todos")) || [];
     },
-    {
-        id: 2,
-        description: "Bla bla",
-        status: "active"         
-    },
-    {
-        id: 3,
-        description: "Bla bla bla",
-        status: "active"  
-    },
-    {
-        id: 4,
-        description: "Bla bla bla bla",
-        status: "active"       
-    },
-    {
-        id: 5,
-        description: "Bla bla bla bla bla",
-        status: "active"     
-    },
-    {
-        id: 6,
-        description: "Bla bla bla bla bla bla",
-        status: "completed"       
-    },
-    {
-        id: 7,
-        description: "Bla bla bla bla bla bla bla",
-        status: "completed"       
-    },
-    {
-        id: 8,
-        description: "Bla bla bla bla bla bla bla bla",
-        status: "completed"       
+
+    set(todos) {
+        localStorage.setItem("todo.app:todos", JSON.stringify(todos))
     }
-]
+}
 
 const FilteredTodos = {
     pressed: 'all',
@@ -55,7 +22,7 @@ const FilteredTodos = {
     options: document.querySelectorAll(".c-menu__item-option"),
 
     getAll() {
-        return allTodos;
+        return LocalStorage.get();
     },
 
     getActive() {
@@ -99,7 +66,10 @@ const FilteredTodos = {
 
 const Todo = {
     add(todo) {
-        FilteredTodos.getAll().push(todo);
+        const todos = FilteredTodos.getAll();
+        todos.push(todo);
+
+        LocalStorage.set(todos)
 
         App.reload();
     },
@@ -110,6 +80,8 @@ const Todo = {
 
         todos[index].status = todos[index].status == 'active' ? 'completed' : 'active';
 
+        LocalStorage.set(todos)
+
         App.reload();
     },
 
@@ -118,20 +90,27 @@ const Todo = {
         const index = todos.findIndex(todo => Number(todo.id) == id);
 
         todos.splice(index, 1);
+
+        LocalStorage.set(todos);
+
         App.reload();
     },
 
     clearCompleted() {
-        allTodos = allTodos.filter(todo => todo.status == 'active');
+        let todos = LocalStorage.get();
+
+        todos = todos.filter(todo => todo.status == 'active');
+
+        LocalStorage.set(todos);
         
         App.reload();
     },
 
     orderTodos() {
-        let newAllTodos = []
-        newAllTodos = newAllTodos.concat(FilteredTodos.getActive(), FilteredTodos.getCompleted())
-        allTodos = newAllTodos
-        console.log(allTodos)
+        let newTodos = []
+        newTodos = newTodos.concat(FilteredTodos.getActive(), FilteredTodos.getCompleted())
+        
+        LocalStorage.set(newTodos);
     }
 
     
@@ -140,6 +119,10 @@ const Todo = {
 const Form = {
     description: document.querySelector('#input-todo'),
     id: FilteredTodos.getAll().length + 1,
+
+    getId() {
+        return FilteredTodos.getAll().length + 1;
+    },
 
     validateFields() {
         const { description } = Form.getValues();
@@ -152,16 +135,16 @@ const Form = {
     formatValues() {
         let { description, id } = Form.getValues();
         return {
+            id,
             description: description.trim(),
-            status: 'active',
-            id
+            status: 'active'
         }
     },
 
     getValues() {
         return {
             description: Form.description.value,
-            id: Form.id
+            id: Form.getId()
         }
     },
 
@@ -236,6 +219,8 @@ const App = {
         const todos = FilteredTodos.getTodos();
         todos.forEach((todo) => DOM.addTodo(todo))
         document.querySelector('#items-left').innerHTML = `${todos.length} itens restantes.`
+
+        console.log(todos)
     },
 
     reload() {

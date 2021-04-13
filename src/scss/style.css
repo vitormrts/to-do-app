@@ -1,7 +1,8 @@
 .l-header {
   margin-top: 75px;
   margin-bottom: 23px;
-  height: 20vh; }
+  height: 20vh;
+  max-height: 150px; }
 
 @media (max-height: 665px) {
   .l-header {
@@ -32,7 +33,8 @@
   font-size: 3.5rem;
   letter-spacing: 9px;
   color: white;
-  flex: 1; }
+  flex: 1;
+  text-align: center; }
 
 .l-header__create-todo {
   background-color: var(--color-bg-list);
@@ -90,7 +92,7 @@
 
 .l-main {
   border-radius: 6px;
-  box-shadow: 0px 0px 30px var(--color-shadow);
+  box-shadow: 0px 10px 20px #d6d6d6;
   background-color: var(--color-bg-list);
   margin-bottom: 30px; }
 
@@ -171,7 +173,6 @@
 @media (min-height: 903px) {
   .c-list {
     max-height: 550px;
-    height: 80vh;
     overflow-y: auto; } }
 
 .c-list__item {

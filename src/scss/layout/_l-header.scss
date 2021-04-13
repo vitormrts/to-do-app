@@ -3,6 +3,8 @@
     margin-bottom: 23px;
     height: 20vh;
 
+    max-height: 150px;
+
     @media (max-height: 665px) {
         height: 25vh;
     }
@@ -38,6 +40,8 @@
         letter-spacing: 9px;
         color: white;
         flex: 1;
+
+        text-align: center;
     }
 
     &__create-todo {

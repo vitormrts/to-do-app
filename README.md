@@ -19,8 +19,7 @@ This application allows you to store your daily tasks, which allows greater cont
 This project was deployed in [Vercel](https://vercel.com). To see a demo, [click here](https://to-do-app-vitormrts.vercel.app/). 
 
 <div align="center">
-    <img src="src/demo/light.png" hspace="20" vspace="20" width=80%/>
-    <img src="src/demo/dark.png" hspace="20" vspace="20" width=80%/>  
+    <img src="src/demo/list.png" hspace="20" vspace="20" width=100%/>
 </div>
 
 <!-- TECHONOLOGIES --> 
