@@ -25,14 +25,15 @@ This project was deployed in [Vercel](https://vercel.com). To see a demo, [click
 <!-- TECHONOLOGIES --> 
 ## 🚀 Technologies
 * ✔️ HTML
-* ✔️ CSS (SCSS)
+* ✔️ CSS (It was utilized SCSS preprocessor)
 * ✔️ JavaScript
 
 <!-- HOW TO USE -->
 ## ℹ️ How To Use
-To modify (locally) this project, you will need [Node](https://nodejs.org/en/) and [GIT](https://git-scm.com/) installed on your computer.
+### 1. Getting Started
+To modify (locally) this project, you will need [Node](https://nodejs.org/en/), [GIT](https://git-scm.com/) and npm (it's comes installed with Node) or [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) installed on your computer (Yarn was utilized in this project).
 
-With these tools in hand, follow the steps below
+### 2. Clonning And Running The App
 ```sh
 # Clone this repository
 $ git clone https://github.com/vitormrts/to-do-app
@@ -41,10 +42,10 @@ $ git clone https://github.com/vitormrts/to-do-app
 $ cd to-do-app
 
 # Install dependencies
-$ npm install
+$ yarn
 
 # Run the app
-$ npm run dev
+$ yarn dev
 ```
 
 Done! Now you have this application in your computer.
