@@ -7,6 +7,16 @@
   align-items: center;
   margin-bottom: 40px; }
 
+.l-header fieldset {
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1; }
+
+.l-header #button-submit {
+  border: 0; }
+
 .l-header__title {
   padding-top: 8px;
   font-size: 3.5rem;
@@ -192,7 +202,7 @@
   position: absolute;
   left: 5px; }
 
-.c-list__mark:checked {
+.c-list__mark.checked {
   background-image: linear-gradient(to right, #57ddff, #c058f3);
   border: none; }
 
@@ -204,6 +214,10 @@
 @media (max-width: 19.6875em) {
   .c-list__text {
     width: 50%; } }
+
+li.completed .c-list__text p {
+  color: gray;
+  text-decoration: line-through; }
 
 .c-list__cross-todo {
   margin-left: 22px;

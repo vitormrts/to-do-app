@@ -54,11 +54,11 @@
             position: absolute;
             left: 5px;
         }
+    }
 
-        &:checked {
-            background-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-            border: none;
-        }
+    &__mark.checked {
+        background-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        border: none;
     }
 
     &__text {
@@ -69,6 +69,11 @@
         @include breakpoint(315) {
             width: 50%;
         }
+    }
+
+    li.completed &__text p {
+        color: gray;
+        text-decoration: line-through;
     }
 
     &__cross-todo {

@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="scss/style.css">
+  <link rel="stylesheet" href="/src/scss/style.css">
   
   <title>Todo</title>
 </head>
@@ -19,15 +19,18 @@
         <h1 class="l-header__title">TODO</h1>
         <p class="l-header__check">
           <input type="checkbox" class="l-header__checkbox">
-          <img class="l-header__icon" src="assets/icon-moon.svg" alt="icon sun-moon">
+          <img class="l-header__icon" src="src/assets/icon-moon.svg" alt="icon sun-moon">
         </p>
       </div>
   
-      <div class="l-header__create-todo">
-        <input type="checkbox" class="l-header__mark" name="mark">
-        <label for="mark"></label>
-        <input type="text" id="test" class="l-header__text" placeholder="Create a new todo...">
-      </div>
+      <form action="" class="l-header__create-todo">
+        <fieldset>
+          <label for="input-todo"></label>
+          <input type="text" name="input-todo" id="input-todo" class="l-header__text" placeholder="Create a new todo...">
+        </fieldset>
+
+        <button id="button-submit"></button>
+      </form>
     </header>
   
     <main class="l-main">
@@ -35,17 +38,17 @@
       </ul> 
       <nav class="c-menu">
         <ul class="c-menu__list">
-          <li class="c-menu__item" id="items-left">0 items left</li>
+          <li class="c-menu__item" id="items-left">0 itens restantes.</li>
           <div class="c-menu__buttom-mid">
-            <button type="button" class="c-menu__buttom"><li class="c-menu__item-option enabled" id="all-items">All</li></button>
-            <button type="button" class="c-menu__buttom"><li class="c-menu__item-option disabled" id="active-items">Active</li></button>
-            <button type="button" class="c-menu__buttom"><li class="c-menu__item-option disabled" id="completed-items">Completed</li></button>
+            <button type="button" class="c-menu__buttom"><li class="c-menu__item-option enabled" id="all-items">Todos</li></button>
+            <button type="button" class="c-menu__buttom"><li class="c-menu__item-option" id="active-items">Ativos</li></button>
+            <button type="button" class="c-menu__buttom"><li class="c-menu__item-option" id="completed-items">Completos</li></button>
           </div>
-          <button type="button" class="c-menu__buttom"><li class="c-menu__item" id="clear-completed">Clear Completed</li></button>
+          <button type="button" class="c-menu__buttom"><li class="c-menu__item" id="clear-completed">Limpar completos</li></button>
         </ul>
       </nav>
     </main>
   </div>
 </body>
-  <script src="script.js"></script>
+  <script src="./src/scripts/app.js"></script>
 </html>
